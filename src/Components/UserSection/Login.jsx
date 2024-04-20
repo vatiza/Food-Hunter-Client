@@ -2,9 +2,12 @@ import React, { useContext } from "react";
 import { Form, Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProviders";
 import { FaGithub, FaGoogle } from "react-icons/fa6";
+import { Navigate, useLocation } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/category/0";
   const { signInUser, googlePopupLogin, githubLogin } = useContext(AuthContext);
   const loginHandle = (event) => {
     event.preventDefault();
@@ -14,7 +17,7 @@ const Login = () => {
     signInUser(email, password)
       .then((result) => {
         const loginUser = result.user;
-        navigate("/category/0");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);
@@ -24,8 +27,8 @@ const Login = () => {
     googlePopupLogin()
       .then((result) => {
         const loggeduser = result.user;
-        console.log(loggeduser);
-        navigate("/category/0");
+      
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);
