@@ -13,7 +13,6 @@ const FoodCard = ({ food }) => {
     cook_time,
     rating,
     chef_name,
-
     chef_profile_photo,
   } = food;
   return (
