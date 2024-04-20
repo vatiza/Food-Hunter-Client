@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaClock } from "react-icons/fa6";
+import { FaClock, FaRegStar, FaStar } from "react-icons/fa6";
+import Rating from "react-rating";
+
 
 const FoodCard = ({ food }) => {
   const {
@@ -21,12 +23,21 @@ const FoodCard = ({ food }) => {
         <img src={photo} alt="Shoes" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">
-          <Link to=""> {name}</Link>
-          <div className="badge badge-secondary">NEW</div>
-        </h2>
+        <h2 className="card-title">{name}</h2>
+
+        <Rating
+          className="text-orange-600"
+          placeholderRating={rating}
+          readonly
+          emptySymbol={<FaRegStar></FaRegStar>}
+          placeholderSymbol={<FaStar />}
+          fullSymbol={<FaStar></FaStar>}
+        />
+
         <p className="mb-5">{description}</p>
-        <Link to={`/food/${id}`} className="btn btn-outline btn-warning">Details</Link>
+        <Link to={`/food/${id}`} className="btn btn-outline btn-warning">
+          Details
+        </Link>
         <div className="flex items-center">
           <img
             className="w-10 h-10 rounded-full"
