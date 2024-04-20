@@ -37,6 +37,16 @@ const Register = () => {
             required
           />
         </label>
+
+        <label className="input mb-4  input-bordered flex items-center gap-2">
+          <input
+            type="url"
+            className="grow w-72"
+            placeholder="Photo URL"
+            name="photoUrl"
+            required
+          />
+        </label>
         <label className="input input-bordered flex items-center gap-2">
           <input
             type="email"

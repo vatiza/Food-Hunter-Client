@@ -7,6 +7,7 @@ import Main from "../Main/Main";
 import LoginLayouts from "../UserSection/LoginLayouts";
 import Login from "../UserSection/Login";
 import Register from "../UserSection/Register";
+import Blogs from "../Layouts/Blogs/Blogs";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "blogs",
+        element: <Blogs></Blogs>,
       },
     ],
   },

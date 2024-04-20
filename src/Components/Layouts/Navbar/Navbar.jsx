@@ -28,43 +28,43 @@ const Navbar = () => {
         </div>
         <div className="ms-3 me-3">
           <Link
-            to="/"
+            to="/blogs"
             className=" text-yellow-500 font-bold btn btn-ghost text-xl"
           >
             Blog
           </Link>
         </div>
-        <div className="dropdown dropdown-end">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar"
-          >
-            {user ? (
+        {user ? (
+          <div className="dropdown dropdown-end">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
               <div className="w-10 rounded-full">
                 <img
                   alt="Tailwind CSS Navbar component"
                   src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
                 />
               </div>
-            ) : (
-              <Link
-                to="/login"
-                className="btn btn-ghost text-yellow-500 font-bold text-xl"
-              >
-                Login
-              </Link>
-            )}
+            </div>
+            <ul
+              tabIndex={0}
+              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <a onClick={handleLogout}>Logout</a>
+              </li>
+            </ul>
           </div>
-          <ul
-            tabIndex={0}
-            className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+        ) : (
+          <Link
+            to="/login"
+            className="btn btn-ghost text-yellow-500 font-bold text-xl"
           >
-            <li>
-              <a onClick={handleLogout}>Logout</a>
-            </li>
-          </ul>
-        </div>
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );
