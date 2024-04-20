@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { FaClock, FaRegStar, FaStar } from "react-icons/fa6";
 import Rating from "react-rating";
 
-
 const FoodCard = ({ food }) => {
   const {
     id,
@@ -18,7 +17,7 @@ const FoodCard = ({ food }) => {
     chef_profile_photo,
   } = food;
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
+    <div className="card w-96 bg-base-100 shadow-xl mt-5">
       <figure>
         <img src={photo} alt="Shoes" />
       </figure>

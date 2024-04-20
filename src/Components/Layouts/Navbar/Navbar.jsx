@@ -12,7 +12,7 @@ const Navbar = () => {
       <div className="flex-none">
         <div className="">
           <Link
-            to=""
+            to="/"
             className="btn btn-ghost text-yellow-500 font-bold text-xl"
           >
             Home

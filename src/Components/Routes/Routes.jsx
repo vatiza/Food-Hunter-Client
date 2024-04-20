@@ -1,10 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import CountryWhichData from "../Layouts/CountrywhichData/CountryWhichData";
 
-import Home from "../Layouts/Home/Home";
-import Main from "../Main/Main";
-import FoodLayout from "../Main/FoodLayout";
 import FoodDetails from "../Layouts/FoodDetails/FoodDetails";
+import FoodLayout from "../Main/FoodLayout";
+import Main from "../Main/Main";
 
 const router = createBrowserRouter([
   {
@@ -13,7 +12,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element: <CountryWhichData></CountryWhichData>,
+        loader: () => fetch("https://food-hunder-js-server.vercel.app/food"),
       },
       {
         path: "/category/:id",
