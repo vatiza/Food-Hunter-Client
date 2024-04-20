@@ -3,8 +3,10 @@ import { Form, Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProviders";
 import { FaGithub, FaGoogle } from "react-icons/fa6";
 import { Navigate, useLocation } from "react-router-dom";
+import useTitle from "../hooks/title_hooks";
 
 const Login = () => {
+  useTitle("Login");
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/category/0";
