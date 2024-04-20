@@ -3,6 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import { FaClock, FaRegStar, FaStar } from "react-icons/fa6";
 import Rating from "react-rating";
 import { GiCampCookingPot, GiCook } from "react-icons/gi";
+import { FaArrowCircleLeft } from "react-icons/fa";
 
 const FoodDetails = () => {
   const food = useLoaderData();
@@ -18,10 +19,12 @@ const FoodDetails = () => {
     chef_profile_photo,
     ingredients,
     instructions,
-    country_name
+    country_name,
+    category_id
   } = food;
   return (
-    <div className="grid grid-cols-3">
+   <div>
+     <div className="grid grid-cols-3">
       <div className="card w-96 bg-base-100 shadow-xl">
         <figure>
           <img src={photo} alt="Shoes" />
@@ -101,11 +104,15 @@ const FoodDetails = () => {
         </div>
       </div>
       
-      <Link to={`/food/${id}`} className="btn btn-outline btn-error">
-            Go Back
-          </Link>
+     
          
     </div>
+    <div className="grid items-center">
+    <Link to={`/category/${category_id}`} className="btn btn-outline btn-error">
+    <FaArrowCircleLeft />  Go Back
+          </Link>
+    </div>
+   </div>
   );
 };
 
