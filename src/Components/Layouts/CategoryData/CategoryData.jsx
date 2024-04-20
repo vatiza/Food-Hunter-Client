@@ -15,10 +15,14 @@ const CategoryData = () => {
         Choose Country
       </h1>
       {categories.map((category) => (
-        <span className="ms-20" key={category.id}>
+        <span
+          className="ms-20 tooltip"
+          data-tip={category.name}
+          key={category.id}
+        >
           <div className="avatar">
             <div className="ms-4 w-20 rounded-full">
-              <Link to="">
+              <Link to={`/category/${category.id}`}>
                 <img src={category.img}></img>
               </Link>
             </div>
