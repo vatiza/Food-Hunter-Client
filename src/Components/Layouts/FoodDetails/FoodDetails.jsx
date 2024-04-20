@@ -1,9 +1,11 @@
 import React from "react";
-import { Link, useLoaderData } from "react-router-dom";
-import { FaClock, FaRegStar, FaStar } from "react-icons/fa6";
-import Rating from "react-rating";
-import { GiCampCookingPot, GiCook } from "react-icons/gi";
 import { FaArrowCircleLeft } from "react-icons/fa";
+import { FaClock, FaRegStar, FaStar } from "react-icons/fa6";
+import { GiCampCookingPot, GiCook } from "react-icons/gi";
+import Rating from "react-rating";
+import { Link, useLoaderData } from "react-router-dom";
+
+import '@smastrom/react-rating/style.css';
 
 const FoodDetails = () => {
   const food = useLoaderData();
