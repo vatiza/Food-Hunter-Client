@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Form, Link } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProviders";
 
 const Register = () => {
-  const registerHangle = (event) => {};
+  const { createNewUser } = useContext(AuthContext);
+  const registerHangle = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    createNewUser(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
     <div>
       <h1 className="text-center text-2xl text-yellow-500 font-bold">
@@ -34,7 +50,7 @@ const Register = () => {
         <label className="input mt-4 input-bordered flex items-center gap-2">
           <input
             type="password"
-            name="passsword"
+            name="password"
             required
             className="grow w-72"
             placeholder="********"
