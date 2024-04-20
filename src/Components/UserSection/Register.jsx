@@ -7,10 +7,10 @@ const Register = () => {
   const registerHangle = (event) => {
     event.preventDefault();
     const form = event.target;
-    const name = form.name.value;
+
     const email = form.email.value;
     const password = form.password.value;
-    const photoUrl=form.photoUrl.value;
+
     createNewUser(email, password)
       .then((result) => {
         const loggedUser = result.user;
@@ -29,25 +29,6 @@ const Register = () => {
         className="flex flex-col  items-center mt-4"
         onSubmit={registerHangle}
       >
-        <label className="input mb-4  input-bordered flex items-center gap-2">
-          <input
-            type="text"
-            className="grow w-72"
-            placeholder="Name"
-            name="name"
-            required
-          />
-        </label>
-
-        <label className="input mb-4  input-bordered flex items-center gap-2">
-          <input
-            type="url"
-            className="grow w-72"
-            placeholder="Photo URL"
-            name="photoUrl"
-            required
-          />
-        </label>
         <label className="input input-bordered flex items-center gap-2">
           <input
             type="email"

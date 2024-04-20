@@ -8,7 +8,8 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/category/0";
-  const { signInUser, googlePopupLogin, githubLogin } = useContext(AuthContext);
+  const { user, signInUser, googlePopupLogin, githubLogin } =
+    useContext(AuthContext);
   const loginHandle = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -17,6 +18,7 @@ const Login = () => {
     signInUser(email, password)
       .then((result) => {
         const loginUser = result.user;
+        setUserId(loginUser);
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -27,7 +29,8 @@ const Login = () => {
     googlePopupLogin()
       .then((result) => {
         const loggeduser = result.user;
-      
+
+        console.log(loggeduser);
         navigate(from, { replace: true });
       })
       .catch((error) => {
