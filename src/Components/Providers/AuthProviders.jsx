@@ -3,6 +3,7 @@ import { createContext } from "react";
 
 export const AuthContext = createContext(null);
 import {
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
@@ -11,7 +12,7 @@ import {
   signOut,
 } from "firebase/auth";
 import app from "../FirebaseConfig/Firebase.config";
-import { GoogleAuthProvider } from "firebase/auth/cordova";
+
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 const AuthProviders = ({ children }) => {
