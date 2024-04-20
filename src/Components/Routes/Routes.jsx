@@ -8,6 +8,7 @@ import LoginLayouts from "../UserSection/LoginLayouts";
 import Login from "../UserSection/Login";
 import Register from "../UserSection/Register";
 import Blogs from "../Layouts/Blogs/Blogs";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +36,12 @@ const router = createBrowserRouter([
     children: [
       {
         path: ":id",
-        element: <FoodDetails></FoodDetails>,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <FoodDetails></FoodDetails>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`https://food-hunder-js-server.vercel.app/food/${params.id}`),
       },

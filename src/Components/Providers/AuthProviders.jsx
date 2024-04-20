@@ -3,6 +3,7 @@ import { createContext } from "react";
 
 export const AuthContext = createContext(null);
 import {
+  GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
@@ -15,6 +16,7 @@ import app from "../FirebaseConfig/Firebase.config";
 
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
+const githubProvider=new GithubAuthProvider();
 const AuthProviders = ({ children }) => {
   const [user, setUser] = useState(null);
   const createNewUser = (email, password) => {
@@ -23,6 +25,10 @@ const AuthProviders = ({ children }) => {
   const googlePopupLogin = () => {
     return signInWithPopup(auth, provider);
   };
+  const githubLogin=()=>{
+    return signInWithPopup(auth,githubProvider);
+
+  }
   const signInUser = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
@@ -43,6 +49,7 @@ const AuthProviders = ({ children }) => {
     signInUser,
     logOutUser,
     googlePopupLogin,
+    githubLogin,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

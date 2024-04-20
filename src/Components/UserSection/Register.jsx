@@ -10,6 +10,7 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    const photoUrl=form.photoUrl.value;
     createNewUser(email, password)
       .then((result) => {
         const loggedUser = result.user;

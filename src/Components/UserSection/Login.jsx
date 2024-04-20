@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProviders";
 import { FaGithub, FaGoogle } from "react-icons/fa6";
 
 const Login = () => {
-  const { signInUser, googlePopupLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { signInUser, googlePopupLogin, githubLogin } = useContext(AuthContext);
   const loginHandle = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -13,7 +14,7 @@ const Login = () => {
     signInUser(email, password)
       .then((result) => {
         const loginUser = result.user;
-        console.log(loginUser);
+        navigate("/category/0");
       })
       .catch((error) => {
         console.log(error.message);
@@ -24,6 +25,17 @@ const Login = () => {
       .then((result) => {
         const loggeduser = result.user;
         console.log(loggeduser);
+        navigate("/category/0");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+  const githubLoginHandler = () => {
+    githubLogin()
+      .then((result) => {
+        const loginuser = result.user;
+        console.log(loginuser);
       })
       .catch((error) => {
         console.log(error.message);
@@ -68,7 +80,10 @@ const Login = () => {
         <button onClick={googleLogin} className="btn btn-outline btn-accent">
           <FaGoogle></FaGoogle>Google
         </button>
-        <button className="btn btn-outline btn-accent">
+        <button
+          onClick={githubLoginHandler}
+          className="btn btn-outline btn-accent"
+        >
           <FaGithub></FaGithub> Github
         </button>
       </div>
