@@ -1,8 +1,10 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import FoodCard from "../Home/FoodCard/FoodCard";
+import useTitle from "../../hooks/title_hooks";
 
 const CountryWhichData = () => {
+  useTitle("Food");
   const countryFood = useLoaderData();
 
   return (
